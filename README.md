@@ -8,4 +8,4 @@ The database used in the Project is available on the "sql" folder<br>
 2 Then use the "capsula.sql" to load more data into the capsulas table.<br>
 3 Now load "create_tables_module_pedido.sql" and "create_tables_module_receita.sql" to add two new tables.<br>
 4 And last, "load create_user_grant_privileges.sql" to create the user used in the project.
-<h2>The tomcat will  probally use the 8080 port as default<h2>
+<h4>The tomcat will  probally use the 8080 port as default<h4>

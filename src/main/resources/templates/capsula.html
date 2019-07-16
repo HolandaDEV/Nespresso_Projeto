@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <title>Cafés Nespresso Brasil - Capsula</title>
+
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css"/>
+
+  <link rel="icon" type="image/x-icon" href="https://image.freepik.com/free-vector/hot-drink-paper-cup-with-mockup-sleeve-vector_53876-62026.jpg"/>
+</head>
+<body>
+	<header>
+  	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navegacao">
+      <div class="container">
+          <a class="navbar-brand" th:href="@{/index}">Cafés Nespresso Brasil</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" th:href="@{/index}">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/capsulas/}">Capsulas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/receitas/}">Receitas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+     </nav>
+  </header>
+  	<main>
+  		<div class="container">
+  			<div class="caixa-conteudo rounded">
+  				<h3 th:text="${capsula.Nome}" class="titulo"></h3>
+				<p th:text="${capsula.ComplementoNome}" class="alinhamento-centro"></p>
+				<p th:text="${capsula.Categoria.Nome}" class="alinhamento-centro"></p>
+				<p th:text="'R$ ' + ${#numbers.formatDecimal(capsula.preco, 0, 'DEFAULT', 2, 'DEFAULT')}" class="alinhamento-centro">R$</p>
+			</div>
+		</div>
+	</main>
+
+    <!-- Footer -->
+  <footer class="py-5 rodape">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Cafés Nespresso Brasil 2019</p>
+    </div>
+  </footer>
+</body>
+	  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

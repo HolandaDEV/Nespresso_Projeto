@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <title>Cafés Nespresso Brasil - Nova Capsula</title>
+
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css"/>
+
+  <link rel="icon" type="image/x-icon" href="https://image.freepik.com/free-vector/hot-drink-paper-cup-with-mockup-sleeve-vector_53876-62026.jpg"/>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navegacao">
+      <div class="container">
+          <a class="navbar-brand" th:href="@{/index}">Cafés Nespresso Brasil</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" th:href="@{/index}">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/capsulas/}">Capsulas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/receitas/}">Receitas</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+     </nav>
+
+    <div class="titulo-div">
+        <h1 class="titulo">Nova Capsula:</h1>
+    </div>
+
+  </header>
+  <div class="container">
+    <div class="caixa-conteudo rounded">
+      <form name="frmNova" th:action="@{/capsulas/nova}"
+          th:object="${nova}" method="post">
+
+        <div class="form-group">
+            <label for="nome" class="etiqueta">Nome: </label>
+            <br/>
+            <input class="input-textbox" type="text" name="nome" id="nome"
+                   th:field="*{nome}"/>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="complementoNome" class="etiqueta">Complemento do Nome: </label>
+            <br/>
+            <input class="input-textbox" type="text" name="complementoNome"
+                   id="complementoNome"
+                   th:field="*{complementoNome}"/>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="categoria" class="etiqueta">Categoria:</label>
+            <br/>
+            <input class="input-textbox" type="text" name="categoria" id="categoria"
+                   th:field="*{categoria.codigo}"/>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="quantidadeUnitaria" class="etiqueta">Qtde. Unitária:</label>
+            <br/>
+            <input class="input-textbox" type="text" name="quantidadeUnitaria"
+                   id="quantidadeUnitaria"
+                   th:field="*{quantidadeUnitaria}"
+            />
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="preco" class="etiqueta">Preco:</label>
+            <br/>
+            <input class="input-textbox" type="text" name="preco" id="preco"
+                   th:field="*{preco}"/>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <p class="etiqueta">Habitado?</p>
+            <input type="checkbox" name="ckbHabilitado"
+                   id="ckbHabilitado"
+                   th:field="*{habilitado}" />
+        </div>
+        <br/>
+
+        <input type="submit" name="btnCadastrar" class="btn btn-primary bg-dark botoes" value="Cadastrar"/>
+      </form>
+    </div>
+    
+  </div>
+    <!-- Footer -->
+  <footer class="py-5 rodape">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Cafés Nespresso Brasil 2019</p>
+    </div>
+  </footer>
+</body>
+    <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

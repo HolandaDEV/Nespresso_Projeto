@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <title>Cafés Nespresso Brasil - Receita</title>
+
+  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" type="text/css"/>
+
+  <link rel="icon" type="image/x-icon" href="https://image.freepik.com/free-vector/hot-drink-paper-cup-with-mockup-sleeve-vector_53876-62026.jpg"/>
+</head>
+<body>
+<!-- Header -->
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navegacao">
+      <div class="container">
+          <a class="navbar-brand" th:href="@{/index}">Cafés Nespresso Brasil</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" th:href="@{/index}">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/capsulas/}">Capsulas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/receitas/}">Receitas</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+     </nav>
+
+    <div class="titulo-div">
+        <h1 class="titulo">Receita:</h1>
+    </div>
+
+  </header>
+  <main>
+      <div class="container">
+          <div class="caixa-conteudo rounded">
+            <h2 class="alinhamento-centro" th:text="${receita.Nome}"></h2>
+            <p class="alinhamento-centro negrito" th:text="${receita.descricao}">:</p>
+            <p class="alinhamento-centro negrito" th:text="${#dates.format(receita.tempoPreparo,'mm:ss')}"></p>
+            <p class="alinhamento-centro negrito" th:text="${receita.rendimento}"></p>
+            <p class="alinhamento-centro negrito" th:text="${receita.grauDificuldade.descricao}"></p>
+            <h3 class="alinhamento-centro">Capsulas da Receita</h3>
+            <ul th:each="rc : ${receita.capsulas}" >
+                <li class="receita-text negrito"  th:text ="${rc.capsula.nome}"></li>
+            </ul>
+            <h3 class="alinhamento-centro">Ingredientes da Receita</h3>
+            <ul th:each="i : ${receita.ingredientes}" >
+                <li class="receita-text negrito"  th:text ="${i.nomeIngrediente}"></li>
+            </ul>
+            <h3 class="alinhamento-centro">Palavras Chave de Receita</h3>
+            <ul th:each="k : ${receita.keywords}" >
+                <li class="receita-text negrito"  th:text ="${k.palavra}"></li>
+            </ul>
+            <h3 class="alinhamento-centro">Passos de Preparo de Receita</h3>
+            <ul th:each="p : ${receita.passosPreparo}" >
+                <li class="receita-text negrito"  th:text ="${p.descricaoPassos}"></li>
+            </ul>
+
+          </div>
+      </div>
+  </main>
+   <!-- Footer -->
+  <footer class="py-5 rodape">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Cafés Nespresso Brasil 2019</p>
+    </div>
+  </footer>
+</body>
+    <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

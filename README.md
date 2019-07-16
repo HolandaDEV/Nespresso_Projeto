@@ -1,6 +1,5 @@
 # Nespresso_Projeto
-Projeto de Estudos
-<!-- English version -->
+<h3>Projeto de Estudos</h3><br>
 Project Started in class in 2018, at the Technical Course of Computing, ministered by Professor Ricardo at CTECCAMP (Technical Course School of Campinas), São Paulo, Brazil.<br>
 Finished by HolandaDEV(Renan Douglas Sousa Holanda) in 2019<br>
 The database used in the Project is available on the "sql" folder<br>
